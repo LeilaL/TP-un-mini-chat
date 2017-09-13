@@ -23,8 +23,10 @@
 
   <p>
 
-      <input type="text" name="pseudo" />
-      <input type="text" name="message" />
+      <label>Pseudo: <input type="text" name="pseudo" /></label>   <br>
+      <br>
+      <label>Message: <input type="text" name="message" /></label>  <br>
+      <br>
       <input type="submit" value="envoyer" />
 
   </p>
