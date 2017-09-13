@@ -19,7 +19,7 @@
   <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
   <![endif]-->
 
-  <form action="cible.php" method="post">
+  <form action="minichat_post.php" method="post">
 
   <p>
 
@@ -27,7 +27,31 @@
       <br>
       <label>Message: <input type="text" name="message" /></label>  <br>
       <br>
-      <input type="submit" value="envoyer" />
+      <input type="submit" value="envoyer" /> <br>
+      <br>
+
+  <?php    try
+  {
+      $bdd = new PDO('mysql:host=localhost;dbname=TP mini chat;charset=utf8', 'root', 'leilalababsa');
+  }
+
+  catch(Exception $e)
+  {
+          die('Erreur : '.$e->getMessage());
+  }
+
+$reponse = $bdd->query('SELECT PSEUDO, MESSAGE FROM minichat');
+
+       while ($donnees = $reponse->fetch())
+
+       {
+          echo '<strong>' .$donnees['PSEUDO']. '</strong> : ' .$donnees['MESSAGE']. '<br />';
+
+       }
+
+
+       $reponse->closeCursor(); // Termine le traitement de la requête
+?>
 
   </p>
 
