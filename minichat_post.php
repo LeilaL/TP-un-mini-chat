@@ -1,8 +1,24 @@
 <?php
 
-// Effectuer ici la requête qui insère le message
+try
+{
+    $bdd = new PDO('mysql:host=localhost;dbname=test;charset=utf8', 'root', 'leilalababsa');
+}
 
-// Puis rediriger vers minichat.php comme ceci :
+catch(Exception $e)
+{
+        die('Erreur : '.$e->getMessage());
+}
+
+
+if (isset($_POST['mdp']) and $_POST['mdp'] == 'kangourou')
+{
+    echo
+}
+else
+{
+    echo
+}
 
 header('Location: minichat.php');
 
