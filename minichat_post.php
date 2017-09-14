@@ -10,9 +10,15 @@ catch(Exception $e)
         die('Erreur : '.$e->getMessage());
 }
 
-$req = $bdd->prepare('SELECT PSEUDO, MESSAGE FROM minichat WHERE PSEUDO = ? AND MESSAGE = ?');
+$req = $bdd->prepare('INSERT INTO minichat(PSEUDO, MESSAGE)
+VALUES(:PSEUDO, :MESSAGE)');
 
-$req->execute(array($_POST['PSEUDO'], $_POST['MESSAGE']));
+$req->execute(array(
+    'PSEUDO' => $_POST['pseudo'],
+
+    'MESSAGE' => $_POST['message']
+
+    ));
 
 
 header('Location: minichat.php');

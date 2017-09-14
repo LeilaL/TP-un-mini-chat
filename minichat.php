@@ -29,10 +29,13 @@
       <br>
       <input type="submit" value="envoyer" /> <br>
       <br>
+    </p>
+
+    </form>
 
   <?php    try
   {
-      $bdd = new PDO('mysql:host=localhost;dbname=TP mini chat;charset=utf8', 'root', 'leilalababsa');
+      $bdd = new PDO('mysql:host=localhost;dbname=TP mini chat;charset=utf8', 'root', 'leilalababsa', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
   }
 
   catch(Exception $e)
@@ -40,7 +43,7 @@
           die('Erreur : '.$e->getMessage());
   }
 
-$reponse = $bdd->query('SELECT PSEUDO, MESSAGE FROM minichat');
+$reponse = $bdd->query('SELECT PSEUDO, MESSAGE FROM minichat ORDER BY');
 
        while ($donnees = $reponse->fetch())
 
@@ -53,9 +56,7 @@ $reponse = $bdd->query('SELECT PSEUDO, MESSAGE FROM minichat');
        $reponse->closeCursor(); // Termine le traitement de la requête
 ?>
 
-  </p>
 
-  </form>
 
 
   <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
