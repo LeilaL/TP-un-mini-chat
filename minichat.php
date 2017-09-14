@@ -43,7 +43,7 @@
           die('Erreur : '.$e->getMessage());
   }
 
-$reponse = $bdd->query('SELECT PSEUDO, MESSAGE FROM minichat ORDER BY');
+$reponse = $bdd->query('SELECT PSEUDO, MESSAGE FROM minichat ORDER BY ID DESC LIMIT 0,5');
 
        while ($donnees = $reponse->fetch())
 
